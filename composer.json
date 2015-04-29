@@ -1,0 +1,27 @@
+{
+    "name": "phpmentors/domain-commons",
+    "type": "library",
+    "description": "Commons for domain models",
+    "keywords": ["modeling", "domain driven design", "ddd"],
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "GOTO Hidenori",
+            "email": "hidenorigoto@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "phpunit/phpunit": "~4.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPMentors\\DomainCommons\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
