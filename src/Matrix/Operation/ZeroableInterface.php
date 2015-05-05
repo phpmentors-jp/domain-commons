@@ -10,8 +10,12 @@
  * distribution, and is available at http://opensource.org/licenses/BSD-2-Clause
  */
 
-namespace PHPMentors\DomainCommons\DateTime;
+namespace PHPMentors\DomainCommons\Matrix\Operation;
 
-class Term extends Period
+interface ZeroableInterface
 {
+    /**
+     * @return bool
+     */
+    public function isZero();
 }
