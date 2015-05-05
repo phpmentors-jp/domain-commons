@@ -4,9 +4,9 @@ Commons for domain models
 
 [![Build Status](https://travis-ci.org/phpmentors-jp/domain-commons.svg?branch=master)](https://travis-ci.org/phpmentors-jp/domain-commons)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/0e1c452e-3cd6-4e17-a6c2-77ae78a9a878/mini.png)](https://insight.sensiolabs.com/projects/0e1c452e-3cd6-4e17-a6c2-77ae78a9a878)
-[![Total Downloads](https://poser.pugx.org/phpmentors-jp/domain-commons/downloads.png)](https://packagist.org/packages/phpmentors-jp/domain-commons)
-[![Latest Stable Version](https://poser.pugx.org/phpmentors-jp/domain-commons/v/stable.png)](https://packagist.org/packages/phpmentors-jp/domain-commons)
-[![Latest Unstable Version](https://poser.pugx.org/phpmentors-jp/domain-commons/v/unstable.png)](https://packagist.org/packages/phpmentors-jp/domain-commons)
+[![Total Downloads](https://poser.pugx.org/phpmentors/domain-commons/downloads.png)](https://packagist.org/packages/phpmentors/domain-commons)
+[![Latest Stable Version](https://poser.pugx.org/phpmentors/domain-commons/v/stable.png)](https://packagist.org/packages/phpmentors/domain-commons)
+[![Latest Unstable Version](https://poser.pugx.org/phpmentors/domain-commons/v/unstable.png)](https://packagist.org/packages/phpmentors/domain-commons)
 
 # Installation
 
