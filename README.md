@@ -27,7 +27,7 @@ $ composer require phpmentors/domain-commons
 
 ## DateTime basics
 
-### Date adn Time
+### Date and Time
 
 - Date
 - DateTime
