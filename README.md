@@ -12,14 +12,7 @@ Commons for domain models
 
 `Domain Commons` can be installed using  [Composer](http://getcomposer.org/).
 
-CAUTION: dev package is only available.
-
 ```
-// composer.json
-{
-    "minimum-stability": "dev"
-}
-
 $ composer require phpmentors/domain-commons
 ```
 
