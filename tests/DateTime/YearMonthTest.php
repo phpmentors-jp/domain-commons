@@ -22,7 +22,7 @@ class YearMonthTest extends \PHPUnit_Framework_TestCase
     {
         $instance = new YearMonth($dateStr);
 
-        $this->assertThat((string)$instance, $this->equalTo($expected));
+        $this->assertThat((string) $instance, $this->equalTo($expected));
     }
 
     public function instanciateData()

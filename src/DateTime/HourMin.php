@@ -14,7 +14,7 @@ namespace PHPMentors\DomainCommons\DateTime;
 
 class HourMin extends DateTime
 {
-    public function __construct($time = "now", $timezone = null)
+    public function __construct($time = 'now', $timezone = null)
     {
         $date = new \DateTime($time, $timezone);
         $dateStr = $date->format('2012-1-1 H:i:00');

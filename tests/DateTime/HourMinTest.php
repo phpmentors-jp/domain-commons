@@ -22,7 +22,7 @@ class HourMinTest extends \PHPUnit_Framework_TestCase
     {
         $instance = new HourMin($dateStr);
 
-        $this->assertThat((string)$instance, $this->equalTo($expected));
+        $this->assertThat((string) $instance, $this->equalTo($expected));
     }
 
     public function instanciateData()

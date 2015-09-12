@@ -22,7 +22,7 @@ class MonthDayTest extends \PHPUnit_Framework_TestCase
     {
         $instance = new MonthDay($dateStr);
 
-        $this->assertThat((string)$instance, $this->equalTo($expected));
+        $this->assertThat((string) $instance, $this->equalTo($expected));
     }
 
     public function instanciateData()

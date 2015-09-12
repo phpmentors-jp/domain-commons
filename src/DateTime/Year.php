@@ -14,7 +14,7 @@ namespace PHPMentors\DomainCommons\DateTime;
 
 class Year extends DateTime
 {
-    public function __construct($time = "now", $timezone = null)
+    public function __construct($time = 'now', $timezone = null)
     {
         $date = new \DateTime($time, $timezone);
         $dateStr = $date->format('Y-1-1 00:00:00');

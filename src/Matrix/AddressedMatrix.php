@@ -29,12 +29,15 @@ class AddressedMatrix extends TypedMatrix
     }
 
     /**
-     * Get element using Column name addressing
+     * Get element using Column name addressing.
      *
      * @api
+     *
      * @param $a
      * @param $b
+     *
      * @return EntityInterface
+     *
      * @throws \RuntimeException
      */
     public function addressGet($a, $b)
@@ -50,10 +53,12 @@ class AddressedMatrix extends TypedMatrix
     }
 
     /**
-     * Get an elements array of specified row
+     * Get an elements array of specified row.
      *
      * @param $a
+     *
      * @return mixed
+     *
      * @throws \RuntimeException
      */
     public function addressGetRow($a)
@@ -68,10 +73,12 @@ class AddressedMatrix extends TypedMatrix
     }
 
     /**
-     * Get an elements array of specified column
+     * Get an elements array of specified column.
      *
      * @param $a
+     *
      * @return mixed
+     *
      * @throws \RuntimeException
      */
     public function addressGetCol($a)
@@ -86,11 +93,12 @@ class AddressedMatrix extends TypedMatrix
     }
 
     /**
-     * Set element using Column name addressing
+     * Set element using Column name addressing.
      *
      * @param $a
      * @param $b
      * @param EntityInterface $newValue
+     *
      * @throws \RuntimeException
      */
     public function addressSet($a, $b, $newValue)
@@ -107,6 +115,7 @@ class AddressedMatrix extends TypedMatrix
 
     /**
      * @api
+     *
      * @return \string[]
      */
     public function columnNames()
@@ -116,6 +125,7 @@ class AddressedMatrix extends TypedMatrix
 
     /**
      * @param $columnName
+     *
      * @return mixed
      */
     private function getColumnIndex($columnName)
@@ -125,12 +135,13 @@ class AddressedMatrix extends TypedMatrix
 
     /**
      * @api
+     *
      * @param $target
      */
     public function copyFrom(EntityInterface $target)
     {
-        /** @var $target AddressedMatrix */
-        assert($target instanceof AddressedMatrix);
+        /* @var $target AddressedMatrix */
+        assert($target instanceof self);
         $this->_columnNames = $target->_columnNames;
         $this->copyFromParent($target);
     }
@@ -140,7 +151,7 @@ class AddressedMatrix extends TypedMatrix
      */
     private function copyFromParent(TypedMatrix $target)
     {
-        /** @var $target TypedMatrix */
+        /* @var $target TypedMatrix */
         parent::copyFrom($target);
     }
 }

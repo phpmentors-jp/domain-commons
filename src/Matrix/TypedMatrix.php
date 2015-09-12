@@ -29,7 +29,7 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
     protected $_cols;
 
     /**
-     * 2 dimension array data (= matrix elements)
+     * 2 dimension array data (= matrix elements).
      *
      * @var array
      */
@@ -60,9 +60,10 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
     }
 
     /**
-     * Return row count
+     * Return row count.
      *
      * @api
+     *
      * @return int
      */
     public function rows()
@@ -71,9 +72,10 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
     }
 
     /**
-     * Return column number
+     * Return column number.
      *
      * @api
+     *
      * @return int
      */
     public function cols()
@@ -82,12 +84,15 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
     }
 
     /**
-     * Return an element located with row/col
+     * Return an element located with row/col.
      *
      * @api
+     *
      * @param $row
      * @param $col
+     *
      * @return mixed
+     *
      * @throws \OutOfRangeException
      */
     public function get($row, $col)
@@ -100,13 +105,16 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
     }
 
     /**
-     * Set an element located with row/col
+     * Set an element located with row/col.
      *
      * @api
+     *
      * @param $row
      * @param $col
      * @param $value
+     *
      * @return $this
+     *
      * @throws \OutOfRangeException
      */
     public function set($row, $col, $value)
@@ -121,10 +129,12 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
     }
 
     /**
-     * Return an array of elements in a specified row
+     * Return an array of elements in a specified row.
      *
      * @param $row
+     *
      * @return mixed
+     *
      * @throws \OutOfRangeException
      */
     public function getRow($row)
@@ -137,10 +147,12 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
     }
 
     /**
-     * Return an array of elements in a specified column
+     * Return an array of elements in a specified column.
      *
      * @param $col
+     *
      * @return array
+     *
      * @throws \OutOfRangeException
      */
     public function getCol($col)
@@ -153,9 +165,10 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
     }
 
     /**
-     * returns whether this matrix is `zero matrix`
+     * returns whether this matrix is `zero matrix`.
      *
      * @api
+     *
      * @return bool
      */
     public function isZero()
@@ -172,10 +185,12 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
     }
 
     /**
-     * apply closure to each element
+     * apply closure to each element.
      *
      * @api
+     *
      * @param callable $f
+     *
      * @return TypedMatrix
      */
     public function map(\Closure $f)
@@ -187,15 +202,17 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
 
     /**
      * @api
+     *
      * @param callable $f arguments $current, $element, $rowIndex, $colIndex
      * @param $initial
+     *
      * @return mixed
      */
     public function reduce(\Closure $f, $initial)
     {
         $current = $initial;
-        for ($rowIndex = 0; $rowIndex < $this->_rows; $rowIndex++) {
-            for ($colIndex = 0; $colIndex < $this->_cols; $colIndex++) {
+        for ($rowIndex = 0; $rowIndex < $this->_rows; ++$rowIndex) {
+            for ($colIndex = 0; $colIndex < $this->_cols; ++$colIndex) {
                 $current = call_user_func($f, $this->_data[$rowIndex][$colIndex], $current, $rowIndex, $colIndex);
             }
         }
@@ -204,22 +221,23 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
     }
 
     /**
-     * builds array of elements
+     * builds array of elements.
      */
     protected function initializeElements()
     {
-        for ($i = 0; $i < $this->_rows; $i++) {
-            for ($j = 0; $j < $this->_cols; $j++) {
+        for ($i = 0; $i < $this->_rows; ++$i) {
+            for ($j = 0; $j < $this->_cols; ++$j) {
                 $this->_data[$i][$j] = call_user_func($this->factory);
             }
         }
     }
 
     /**
-     * Check whether row/col are valid
+     * Check whether row/col are valid.
      *
      * @param $row
      * @param $col
+     *
      * @return bool
      */
     private function checkRange($row, $col)
@@ -240,7 +258,7 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
      */
     public function copyFrom(EntityInterface $target)
     {
-        /** @var $target TypedMatrix */
+        /* @var $target TypedMatrix */
         $this->_data = $target->_data;
         $this->_cols = $target->_cols;
         $this->_rows = $target->_rows;
@@ -251,14 +269,15 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
      */
     public function copyTo(EntityInterface $destination)
     {
-        /** @var $destination TypedMatrix */
+        /* @var $destination TypedMatrix */
         $destination->_data = $this->_data;
         $destination->_cols = $this->_cols;
         $destination->_rows = $this->_rows;
     }
 
     /**
-     * @param  EntityInterface $target
+     * @param EntityInterface $target
+     *
      * @return bool
      */
     public function equals(EntityInterface $target)
@@ -271,8 +290,8 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
             return false;
         }
 
-        for ($i = 0; $i < $this->_rows; $i++) {
-            for ($j = 0; $j < $this->_cols; $j++) {
+        for ($i = 0; $i < $this->_rows; ++$i) {
+            for ($j = 0; $j < $this->_cols; ++$j) {
                 if (is_object($this->_data[$i][$j])) {
                     if ($this->_data[$i][$j]->equals($target->_data[$i][$j]) === false) {
                         return false;

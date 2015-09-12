@@ -14,7 +14,7 @@ namespace PHPMentors\DomainCommons\DateTime;
 
 class YearMonth extends DateTime
 {
-    public function __construct($time = "now", $timezone = null)
+    public function __construct($time = 'now', $timezone = null)
     {
         $date = new \DateTime($time, $timezone);
         $dateStr = $date->format('Y-m-1 00:00:00');
@@ -25,15 +25,16 @@ class YearMonth extends DateTime
     public static function fromLong($ym)
     {
         $month = $ym % 100;
-        $year = (int)floor($ym / 100);
+        $year = (int) floor($ym / 100);
 
         $class = static::class;
+
         return new $class("$year-$month-1 00:00:00");
     }
 
     public function toLong()
     {
-        return (int)$this->format('Ym');
+        return (int) $this->format('Ym');
     }
 
     public function addDays($days)

@@ -38,7 +38,7 @@ class PeriodTraitTest extends \PHPUnit_Framework_TestCase
 
         $count = 0;
         foreach ($period as $one) {
-            $count++;
+            ++$count;
         }
         $this->assertThat($count, $this->equalTo($expectedCount));
     }
