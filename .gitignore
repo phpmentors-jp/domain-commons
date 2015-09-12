@@ -10,5 +10,6 @@
 /composer.lock
 /composer.phar
 /nbproject/
+/php-cs-fixer.phar
 /vendor/
 cache.properties
