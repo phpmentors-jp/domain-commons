@@ -16,7 +16,8 @@ trait DailyTrait
 {
     protected $it;
 
-    public function getIterator() {
+    public function getIterator()
+    {
         return $this->it;
     }
 
@@ -28,8 +29,7 @@ trait DailyTrait
     public function iterate()
     {
         $current = clone $this->start;
-        while (true)
-        {
+        while (true) {
             yield $current;
             $current = $current->addDays(1);
             if ($current > $this->end) {

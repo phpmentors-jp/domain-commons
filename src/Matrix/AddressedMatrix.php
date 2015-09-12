@@ -42,7 +42,9 @@ class AddressedMatrix extends TypedMatrix
         $aIndex = $this->getColumnIndex($a);
         $bIndex = $this->getColumnIndex($b);
 
-        if ($aIndex === false || $bIndex === false) throw new \RuntimeException();
+        if ($aIndex === false || $bIndex === false) {
+            throw new \RuntimeException();
+        }
 
         return $this->get($bIndex, $aIndex);
     }
@@ -58,7 +60,9 @@ class AddressedMatrix extends TypedMatrix
     {
         $aIndex = $this->getColumnIndex($a);
 
-        if ($aIndex === false) throw new \RuntimeException();
+        if ($aIndex === false) {
+            throw new \RuntimeException();
+        }
 
         return $this->getCol($aIndex);
     }
@@ -74,7 +78,9 @@ class AddressedMatrix extends TypedMatrix
     {
         $aIndex = $this->getColumnIndex($a);
 
-        if ($aIndex === false) throw new \RuntimeException();
+        if ($aIndex === false) {
+            throw new \RuntimeException();
+        }
 
         return $this->getRow($aIndex);
     }
@@ -92,7 +98,9 @@ class AddressedMatrix extends TypedMatrix
         $aIndex = $this->getColumnIndex($a);
         $bIndex = $this->getColumnIndex($b);
 
-        if ($aIndex === false || $bIndex === false) throw new \RuntimeException();
+        if ($aIndex === false || $bIndex === false) {
+            throw new \RuntimeException();
+        }
 
         $this->set($bIndex, $aIndex, $newValue);
     }

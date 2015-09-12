@@ -92,7 +92,9 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
      */
     public function get($row, $col)
     {
-        if (!$this->checkRange($row, $col)) throw new \OutOfRangeException();
+        if (!$this->checkRange($row, $col)) {
+            throw new \OutOfRangeException();
+        }
 
         return $this->_data[$row][$col];
     }
@@ -109,7 +111,9 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
      */
     public function set($row, $col, $value)
     {
-        if (!$this->checkRange($row, $col)) throw new \OutOfRangeException();
+        if (!$this->checkRange($row, $col)) {
+            throw new \OutOfRangeException();
+        }
 
         $this->_data[$row][$col] = $value;
 
@@ -125,7 +129,9 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
      */
     public function getRow($row)
     {
-        if (!$this->checkRange($row, 0)) throw new \OutOfRangeException();
+        if (!$this->checkRange($row, 0)) {
+            throw new \OutOfRangeException();
+        }
 
         return $this->_data[$row];
     }
@@ -139,7 +145,9 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
      */
     public function getCol($col)
     {
-        if (!$this->checkRange(0, $col)) throw new \OutOfRangeException();
+        if (!$this->checkRange(0, $col)) {
+            throw new \OutOfRangeException();
+        }
 
         return array_column($this->_data, $col);
     }
@@ -216,8 +224,12 @@ class TypedMatrix implements EntityInterface, EquatableInterface, CopyableInterf
      */
     private function checkRange($row, $col)
     {
-        if ($this->_rows <= $row || $row < 0) return false;
-        if ($this->_cols <= $col || $col < 0) return false;
+        if ($this->_rows <= $row || $row < 0) {
+            return false;
+        }
+        if ($this->_cols <= $col || $col < 0) {
+            return false;
+        }
 
         return true;
     }

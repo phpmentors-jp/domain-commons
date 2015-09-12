@@ -22,8 +22,7 @@ trait MonthlyTrait
     public function iterate()
     {
         $current = clone $this->start;
-        while (true)
-        {
+        while (true) {
             yield $current;
             $current = $current->addMonths(1);
             if ($current > $this->end) {
