@@ -1,20 +1,10 @@
 <?php
-$config = Symfony\CS\Config\Config::create();
-$config->level(null);
-$config->fixers(
-    array(
-        'indentation',
-        'linefeed',
-        'trailing_spaces',
-        'short_tag',
-        'visibility',
-        'php_closing_tag',
-        'braces',
-        'function_declaration',
-        'psr0',
-        'elseif',
-        'eof_ending',
-        'unused_use',
-    )
-);
-return $config;
+$finder = Symfony\CS\Finder\DefaultFinder::create()
+    ->in(__DIR__.'/src')
+    ->in(__DIR__.'/tests')
+    ;
+
+return Symfony\CS\Config\Config::create()
+    ->fixers(array('-empty_return', '-blankline_after_open_tag', 'ordered_use', '-phpdoc_no_empty_return'))
+    ->finder($finder)
+    ;
