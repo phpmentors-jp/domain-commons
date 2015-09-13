@@ -28,6 +28,7 @@ $ composer require phpmentors/domain-commons
 - Year
 - YearMonth
 - HourMin
+- AgeRange
 
 ### Period
 
