@@ -2,7 +2,7 @@
     "name": "phpmentors/domain-commons",
     "type": "library",
     "description": "Commons for domain models",
-    "keywords": ["modeling", "domain driven design", "ddd", "datetime"],
+    "keywords": ["modeling", "design", "domain driven design", "ddd", "datetime"],
     "license": "BSD-2-Clause",
     "authors": [
         {
