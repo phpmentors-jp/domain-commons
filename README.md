@@ -76,9 +76,6 @@ foreach ($period as $one) {
 }
 ```
 
-
-
-
 ### Utility
 
 - Clock
