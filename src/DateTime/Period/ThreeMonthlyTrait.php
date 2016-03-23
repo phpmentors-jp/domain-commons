@@ -12,6 +12,7 @@
 
 namespace PHPMentors\DomainCommons\DateTime\Period;
 
+use PHPMentors\DomainCommons\DateTime\Date;
 use PHPMentors\DomainCommons\DateTime\Term;
 
 trait ThreeMonthlyTrait
@@ -39,8 +40,10 @@ trait ThreeMonthlyTrait
         $start = clone $this->start;
         while (true) {
             $end = clone $start->addMonths(2);
-            $end = min($end, $this->end);
-            $end = new \DateTime($end->format('Y-m-t'));
+            $end = new Date($end->format('Y-m-t'));
+            if ($end > $this->end) {
+                $end = $this->end;
+            }
 
             if ($this->_termFactory) {
                 yield call_user_func($this->_termFactory, $start, $end);
@@ -48,7 +51,7 @@ trait ThreeMonthlyTrait
                 yield new Term($start, $end);
             }
 
-            $start = $start->addMonths(3);
+            $start = $end->addDays(1);
             if ($start > $this->end) {
                 break;
             }
