@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2015 GOTO Hidenori <hidenorigoto@gmail.com>,
+ * Copyright (c) 2017 GOTO Hidenori <hidenorigoto@gmail.com>,
  * All rights reserved.
  *
  * This file is part of Domain Commons.
@@ -13,6 +13,7 @@
 namespace PHPMentors\DomainCommons\DateTime;
 
 use DateTimeImmutable;
+use PHPMentors\DomainCommons\DateTime\Exception\UnsupportedCalculation;
 
 class DateTime extends DateTimeImmutable
 {
@@ -24,6 +25,15 @@ class DateTime extends DateTimeImmutable
         return new $class(date('Y-m-d H:i:s', strtotime($daysStr, $this->getTimestamp())));
     }
 
+    /**
+     * @param  int       $months
+     * @return DateTime
+     * @throws UnsupportedCalculation
+     *
+     * NOTE: This method throws UnsupportedCalculation exception when
+     *       the day of the result is not equal to the original date.
+     *       Don't forget to handle this situation before calling this method.
+     */
     public function addMonths($months)
     {
         $class = static::class;
@@ -32,7 +42,7 @@ class DateTime extends DateTimeImmutable
         $newInstance = new $class(date('Y-m-d H:i:s', strtotime($monthsStr, $this->getTimestamp())));
 
         if ($newInstance->format('d') != $this->format('d')) {
-            throw new \RuntimeException();
+            throw new UnsupportedCalculation();
         }
 
         return $newInstance;
