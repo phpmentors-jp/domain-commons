@@ -12,7 +12,9 @@
 
 namespace PHPMentors\DomainCommons\DateTime;
 
-class MonthDayTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class MonthDayTest extends TestCase
 {
     /**
      * @test

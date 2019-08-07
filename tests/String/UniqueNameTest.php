@@ -12,10 +12,12 @@
 
 namespace PHPMentors\DomainCommons\String;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @since Class available since Release 1.1.1
  */
-class UniqueNameTest extends \PHPUnit_Framework_TestCase
+class UniqueNameTest extends TestCase
 {
     public function test()
     {

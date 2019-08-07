@@ -12,6 +12,7 @@
 
 namespace PHPMentors\DomainCommons\DateTime;
 
+use PHPUnit\Framework\TestCase;
 use PHPMentors\DomainCommons\DateTime\Period\DailyIteratableInterface;
 use PHPMentors\DomainCommons\DateTime\Period\DailyTrait;
 
@@ -26,7 +27,7 @@ class DailyPeriod extends Period implements DailyIteratableInterface
     }
 }
 
-class PeriodTraitTest extends \PHPUnit_Framework_TestCase
+class PeriodTraitTest extends TestCase
 {
     /**
      * @test

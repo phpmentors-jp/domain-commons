@@ -12,6 +12,7 @@
 
 namespace PHPMentors\DomainCommons\DateTime;
 
+use PHPUnit\Framework\TestCase;
 use PHPMentors\DomainCommons\DateTime\Period\MonthlyIteratableInterface;
 use PHPMentors\DomainCommons\DateTime\Period\ThreeMonthlyTrait;
 
@@ -38,7 +39,7 @@ class OneTerm extends Term
     public function getEnd(){return $this->end;}
 }
 
-class ThreeMonthlyTraitTest extends \PHPUnit_Framework_TestCase
+class ThreeMonthlyTraitTest extends TestCase
 {
     /**
      * @test

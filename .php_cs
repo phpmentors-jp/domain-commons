@@ -1,10 +1,14 @@
 <?php
-$finder = Symfony\CS\Finder\DefaultFinder::create()
+$finder = PhpCsFixer\Finder::create()
     ->in(__DIR__.'/src')
     ->in(__DIR__.'/tests')
     ;
 
-return Symfony\CS\Config\Config::create()
-    ->fixers(array('-empty_return', '-blankline_after_open_tag', 'ordered_use', '-phpdoc_no_empty_return'))
-    ->finder($finder)
+return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules([
+        'blank_line_after_opening_tag' => true,
+        'phpdoc_no_empty_return' => true,
+    ])
+    ->setFinder($finder)
     ;
