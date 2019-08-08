@@ -12,7 +12,10 @@
 
 namespace PHPMentors\DomainCommons\DateTime;
 
-class DateTimeTest extends \PHPUnit_Framework_TestCase
+use PHPMentors\DomainCommons\DateTime\Exception\UnsupportedCalculation;
+use PHPUnit\Framework\TestCase;
+
+class DateTimeTest extends TestCase
 {
     /**
      * @test
@@ -69,10 +72,11 @@ class DateTimeTest extends \PHPUnit_Framework_TestCase
      * @param string  $dateStr
      * @param int     $months
      * @dataProvider  addMonthsThrowsExceptionData
-     * @expectedException \PHPMentors\DomainCommons\DateTime\Exception\UnsupportedCalculation
      */
     public function addMonthsThrowsException($dateStr, $months)
     {
+        $this->expectException(UnsupportedCalculation::class);
+
         $date = new DateTime($dateStr);
 
         $date->addMonths($months);

@@ -13,3 +13,5 @@
 /php-cs-fixer.phar
 /vendor/
 cache.properties
+.php_cs.cache
+.phpunit.result.cache

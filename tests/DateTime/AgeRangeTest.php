@@ -12,10 +12,12 @@
 
 namespace PHPMentors\DomainCommons\DateTime;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @since Class available since Release 1.1.0
  */
-class AgeRangeTest extends \PHPUnit_Framework_TestCase
+class AgeRangeTest extends TestCase
 {
     /**
      * @param string $target
@@ -47,7 +49,7 @@ class AgeRangeTest extends \PHPUnit_Framework_TestCase
      */
     public function getMaxAsDate(\DateTimeInterface $currentDate, $max, $maxAsDate)
     {
-        $clock = $this->getMock('PHPMentors\DomainCommons\DateTime\Clock');
+        $clock = $this->createMock('PHPMentors\DomainCommons\DateTime\Clock');
         $clock->method('now')->will($this->returnValue($currentDate));
         $ageRange = new AgeRange();
         $ageRange->setClock($clock);
@@ -76,7 +78,7 @@ class AgeRangeTest extends \PHPUnit_Framework_TestCase
      */
     public function getMinAsDate(\DateTimeInterface $currentDate, $min, $minAsDate)
     {
-        $clock = $this->getMock('PHPMentors\DomainCommons\DateTime\Clock');
+        $clock = $this->createMock('PHPMentors\DomainCommons\DateTime\Clock');
         $clock->method('now')->will($this->returnValue($currentDate));
         $ageRange = new AgeRange();
         $ageRange->setClock($clock);
